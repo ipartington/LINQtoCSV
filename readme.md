@@ -15,6 +15,39 @@ This library makes it easy to use CSV files with LINQ queries. Its features incl
 Full documentation is at
 http://www.codeproject.com/Articles/25133/LINQ-to-CSV-library
 
+
+# Getting Started
+
+Reading from a file
+
+1) In your project, add a reference to the LINQtoCSV.dll you generated during Installation.
+
+2) The file will be read into an IEnumerable<T>, where T is a data class that you define. The data records read from the file will be stored in objects of this data class. You could define a data class along these lines:
+
+```
+
+    using LINQtoCSV;
+    using System;
+
+    class Product
+    {
+        [CsvColumn(Name = "ProductName", FieldIndex = 1)]
+        public string Name { get; set; }
+
+        [CsvColumn(FieldIndex = 2, OutputFormat = "dd MMM HH:mm:ss")]
+        public DateTime LaunchDate { get; set; }
+
+        [CsvColumn(FieldIndex = 3, CanBeNull = false, OutputFormat = "C")]
+        public decimal Price { get; set; }
+
+        [CsvColumn(FieldIndex = 4)]
+        public string Country { get; set; }
+
+        [CsvColumn(FieldIndex = 5)]
+        public string Description { get; set; }
+    }
+```
+
 # Contributors welcome
 
 All contributions are welcome, whether those are new features or bug fixes.
