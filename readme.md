@@ -25,7 +25,6 @@ Reading from a file
 2) The file will be read into an IEnumerable<T>, where T is a data class that you define. The data records read from the file will be stored in objects of this data class. You could define a data class along these lines:
 
 ```
-
     using LINQtoCSV;
     using System;
 
@@ -47,6 +46,13 @@ Reading from a file
         public string Description { get; set; }
     }
 ```
+
+With this definition, you could read into an IEnumerable<Product>.
+
+Although this example only uses properties, the library methods will recognize simple fields as well. Just make sure your fields/properties are public.
+
+The optional CsvColumn attribute allows you to specify whether a field/property is required, how it should be written to an output file, etc. Full details are available here.
+
 
 # Contributors welcome
 
